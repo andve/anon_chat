@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
+import os
 import json
 import sys
 
 import requests
 
 def create_room():
-	return requests.get(f"{url}/create")
+    return requests.get(f"{url}/create")
 
 def send_message(room_code, message):
 	payload = json.dumps({"content": message})
@@ -19,7 +20,7 @@ def retrieve_messages(room_code):
 def print_usage():
 	print("usage: simple_client [-c | -s <code> <message> | -r <code>]")
 
-url = "http://localhost:8000"
+url = os.environ.get("URL") or "http://localhost"
 
 if len(sys.argv) == 1:
 	print("error: no options given")
