@@ -1,2 +1,5 @@
 anon_chat
 Chat with other users anonymously
+
+Dependencies
+Flask
